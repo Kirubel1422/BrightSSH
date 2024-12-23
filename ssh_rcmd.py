@@ -5,7 +5,7 @@ import shlex
 def ssh_command(ip, port, username, password, command):
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(hostname=ip, port=port, username=username, password=password)
+    client.connect(ip, port=port, username=username, password=password)
 
     session = client.get_transport().open_session()
     if session.active:
@@ -29,7 +29,7 @@ if __name__ == '__main__':
     import getpass
     host = input('Enter IP: ')
     port = int(input('Enter port: '))
-    username = getpass.getuser("Enter username: ")
+    username = input('Enter Username: ')
     password = getpass.getpass("Enter password: ")
    
     ssh_command(ip=host, port=port, username=username, password=password, command='Client Connected')
