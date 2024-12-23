@@ -18,11 +18,11 @@ class Server(paramiko.ServerInterface):
     
     def check_auth_password(self, username, password):
         if (username == 'bright' and password == 'bright'):
-            return paramiko.Auth_SUCCESSFUL
+            return paramiko.AUTH_SUCCESSFUL
     
 
 if __name__ == '__main__':
-    server_ip = '127.0.0.1'
+    server_ip = '0.0.0.0'
     server_port = 123
 
     try:
